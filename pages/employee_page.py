@@ -4,7 +4,6 @@ from playwright.sync_api import Page
 
 
 class EmployeePage:
-
     def __init__(self, page: Page):
         self.page = page
 
@@ -23,7 +22,6 @@ class EmployeePage:
         self.page.click("button[type='submit']")
 
     def add_employee_with_login(self, first, last, username, password):
-
         self.page.fill("input[name='firstName']", first)
         self.page.fill("input[name='lastName']", last)
 

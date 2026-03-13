@@ -2,8 +2,8 @@
 
 from playwright.sync_api import Page, expect
 
-class LoginPage:
 
+class LoginPage:
     def __init__(self, page: Page):
         self.page = page
         self.username = page.locator("input[name='username']")
@@ -29,4 +29,3 @@ class LoginPage:
         """Login with invalid credentials."""
         self.login(username, password)
         expect(self.page.get_by_text("Invalid credentials")).to_be_visible()
-        
