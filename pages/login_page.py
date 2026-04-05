@@ -17,8 +17,10 @@ class LoginPage:
         """Login to system."""
         self.username.fill(username)
         self.password.fill(password)
-        self.login_button.click()
-        self.page.wait_for_timeout(5000)  # Wait for 5 seconds to ensure the page has loaded
+
+        # wait for navigation AFTER click
+        with self.page.expect_navigation():
+            self.login_button.click()
 
     def valid_login(self, username: str, password: str):
         """Login with valid credentials."""
